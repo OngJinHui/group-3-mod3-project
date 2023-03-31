@@ -20,6 +20,12 @@ public class ItineraryItem {
   @JsonIgnoreProperties("itineraryItems")
   private Itinerary itinerary;
 
+  @Column(name = "name")
+  private String name;
+
+  @Column(name = "description")
+  private String description;
+
   @ManyToOne
   @JoinColumn(name = "transport_id")
   private Transport transport;
@@ -43,29 +49,6 @@ public class ItineraryItem {
 
   @Column(name = "created_at", updatable = false)
   private Timestamp createdAt = new Timestamp(new Date().getTime());
-
-  // from Ben
-  @Column(name = "name")
-  private String name;
-
-  @Column(name = "description")
-  private String description;
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
 
   // #region Getters and Setters
   public Integer getId() {
@@ -138,6 +121,22 @@ public class ItineraryItem {
 
   public void setNotes(String notes) {
     this.notes = notes;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   // #endregion
